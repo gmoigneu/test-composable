@@ -1,10 +1,14 @@
 applications:
   test-project:
-    type: "php:8.3"
-    runtime:
-      extensions:
-        - pdo
-        - pdo_mysql
+    stack: 
+      - "php@8.3":
+        extensions:
+          - intl
+          - zip
+          - pdo_pgsql
+          - pcntl
+          - redis
+      - "nodejs@22"
 
     relationships:
       database: "mysql:mysql"
