@@ -1,14 +1,14 @@
 applications:
   test-project:
     stack: 
-      - "php@8.3":
-        extensions:
-          - intl
-          - zip
-          - pdo_pgsql
-          - pcntl
-          - redis
-      - "nodejs@22"
+        - "php@8.3":
+            extensions:
+                - intl
+                - zip
+                - pdo_pgsql
+                - pcntl
+                - redis
+        - "nodejs@22"
 
     relationships:
       database: "mysql:mysql"
