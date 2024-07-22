@@ -1,10 +1,10 @@
 applications:
   test-project:
     type: "php:8.3"
-      runtime:
-        extensions:
-          - pdo
-          - pdo_mysql
+    runtime:
+      extensions:
+        - pdo
+        - pdo_mysql
 
     relationships:
       database: "mysql:mysql"
@@ -28,7 +28,7 @@ applications:
         
 services:
   mysql:
-    type: mysql:10.6 # All available versions are: 10.6, 10.5, 10.4, 10.3
+    type: mysql:10.6
 
 routes:
   "https://{default}/":
