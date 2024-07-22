@@ -1,0 +1,36 @@
+applications:
+  test-project:
+    type: "php:8.3"
+      runtime:
+        extensions:
+          - pdo
+          - pdo_mysql
+
+    relationships:
+      database: "mysql:mysql"
+      
+    web:
+      locations:
+        "/":
+          passthru: "/index.php"
+          root: ""
+          
+    hooks:
+      build: |
+        set -eux
+        
+        # Add build steps here.
+        # echo 'I am a build step'
+        
+      deploy: |
+        set -eux
+        # echo 'Put your deploy command here'
+        
+services:
+  mysql:
+    type: mysql:10.6 # All available versions are: 10.6, 10.5, 10.4, 10.3
+
+routes:
+  "https://{default}/":
+    type: upstream
+    upstream: "test-project:http"
